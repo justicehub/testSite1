@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>An Interactive Web Portfolio</title>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="main.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css">
+ 
+  <div id = "Video">
+  	<iframe id="videoFrame" src="https://www.youtube.com/embed/zw1XLrZ-Spg"></iframe>	
+  </div>
+
+  <script>
+    var posX = -1000;
+    var posY = sessionStorage.getItem("videoY");
+    var frameWidth = sessionStorage.getItem("frameWidth");
+    var addedPos = [0,0];
+  	var videoFrame = document.getElementById("Video");
+  	videoFrame.style.position = "absolute";
+
+  	setInterval(TimerTick, 16);
+  	function TimerTick() {
+  		posX = sessionStorage.getItem("videoX");
+  		posY = sessionStorage.getItem("videoY");
+  		addedPos[0] = videoFrame.width;
+  		addedPos[1] = videoFrame.height;
+  		// x += addedPos[0];
+  		// y += addedPos[1];
+  		videoFrame.style.left = posX;
+  		videoFrame.style.top  = posY;
+      frameWidth = sessionStorage.getItem("frameWidth");
+      document.getElementById("videoFrame").style.width  = frameWidth;
+      document.getElementById("videoFrame").style.height = frameWidth*(5/8);
+  	}
+  </script>
+
+  <script>
+      function myFunction() {
+          document.getElementById("myBtn").style.width = "500px";
+          document.getElementById("videoFrame").style.width = "900px";
+      videoFrame.style.height = "900px";
+      }
+    </script>
+
+  <style> body {padding: 0; margin: 0;} </style>
+</head>
+
+<body>
+</body>
+</html>
